@@ -42,17 +42,14 @@ public class AgendamentoService {
         Consultorio consultorio = consultorioRepository.findById(agendamento.getConsultorio().getId())
                 .orElseThrow(() -> new DataIntegrityViolationException("Consultório não encontrado."));
 
-        // não permite dois agendamentos para o mesmo dentista no mesmo horário
         if (agendamentoRepository.existsByDentistaIdAndDataHoraAndStatusNot(dentista.getId(), agendamento.getDataHora(), "CANCELADO")) {
             throw new DataIntegrityViolationException("Este dentista já possui uma consulta marcada neste horário.");
         }
 
-        // não permite usar o mesmo consultório no mesmo horário
         if (agendamentoRepository.existsByConsultorioIdAndDataHoraAndStatusNot(consultorio.getId(), agendamento.getDataHora(), "CANCELADO")) {
             throw new DataIntegrityViolationException("Este consultório já está ocupado neste horário.");
         }
 
-        // Preenche as referências completas e define status padrão se vier vazio
         agendamento.setPaciente(paciente);
         agendamento.setDentista(dentista);
         agendamento.setProcedimento(procedimento);
