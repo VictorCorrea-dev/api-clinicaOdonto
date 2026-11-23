@@ -33,28 +33,4 @@ Todas as entidades seguem o padrão REST:
 
 *(Substitua `{entidade}` por `pacientes`, `dentistas`, `procedimentos`, `consultorios` ou `agendamentos`)*
 
-## Como Executar o Projeto
 
-### 1. Banco de Dados
-1. Certifique-se de ter o **MySQL** instalado e em execução.
-2. Configure o acesso ao banco no arquivo `src/main/resources/application.properties`:
-   ```properties
-   spring.datasource.url=jdbc:mysql://localhost:3306/clinica_odonto?createDatabaseIfNotExist=true
-   spring.datasource.username=root
-   spring.datasource.password=sua_senha
-   ```
-
-### 2. Back-end (API)
-1. Abra o projeto na sua IDE Java (IntelliJ IDEA, Eclipse ou VS Code).
-2. Aguarde o Maven baixar as dependências.
-3. Execute a classe principal `ClinicaOdontoApplication.java`.
-4. A API estará disponível em `http://localhost:8080`.
-
-### 3. Front-end
-1. Abra a pasta do front-end do projeto.
-2. Abra o arquivo `index.html` no navegador.
-3. Utilize as abas para navegar entre os módulos e realizar os cadastros.
-
-## Autor
-
-Desenvolvido por **Victor Correa** — [GitHub](https://github.com/VictorCorrea-dev)
