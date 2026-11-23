@@ -126,7 +126,7 @@ Imagens com a documentação através do Postman:
 <img width="1465" height="727" alt="image" src="https://github.com/user-attachments/assets/e522c32a-19e2-4e23-8de2-a45d3c0aa219" />
 <img width="1467" height="697" alt="image" src="https://github.com/user-attachments/assets/43474e14-2ffa-42f8-ba1f-b9e6272a6b7a" />
 <img width="1480" height="739" alt="image" src="https://github.com/user-attachments/assets/ec756d14-e690-4026-880c-e1973fbe04b1" />
-<img width="1494" height="769" alt="image" src="https://github.com/user-attachments/assets/177cb7db-69af-4012-8080-c1d9e44759d2" />
+<img width="1472" height="646" alt="image" src="https://github.com/user-attachments/assets/7c21fc17-70d7-4f7a-9ec3-835c5ad0bfa8" />
 <img width="1467" height="732" alt="image" src="https://github.com/user-attachments/assets/e2fdc867-3178-43a8-b051-81fea8c14020" />
 
 
