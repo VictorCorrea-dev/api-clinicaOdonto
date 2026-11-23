@@ -121,19 +121,18 @@ Para executar a suíte de testes unitários e de contexto do Spring Boot via ter
 ```
 
 ### Testes Manuais e Coleção de Requisições (Postman / Insomnia)
-1. Com a API em execução em `http://localhost:8080`, abra o **Postman**, **Insomnia** ou o próprio **Front-end (`index.html`)**.
-2. Cadastre primeiro os registros base (`POST /pacientes`, `POST /dentistas`, `POST /procedimentos` e `POST /consultorios`).
-3. Para testar a criação de um agendamento (`POST http://localhost:8080/agendamentos`), utilize o seguinte exemplo de corpo JSON (`Content-Type: application/json`):
-   ```json
-   {
-     "dataHora": "2026-12-10T14:30:00",
-     "observacoes": "Avaliação inicial",
-     "paciente": { "id": 1 },
-     "dentista": { "id": 1 },
-     "procedimento": { "id": 1 },
-     "consultorio": { "id": 1 }
-   }
+Imagens com a documentação através do Postman:
+<img width="1470" height="652" alt="image" src="https://github.com/user-attachments/assets/00b2b24a-7792-40a3-ac57-8030dfe0d001" />
+<img width="1465" height="727" alt="image" src="https://github.com/user-attachments/assets/e522c32a-19e2-4e23-8de2-a45d3c0aa219" />
+<img width="1467" height="697" alt="image" src="https://github.com/user-attachments/assets/43474e14-2ffa-42f8-ba1f-b9e6272a6b7a" />
+<img width="1480" height="739" alt="image" src="https://github.com/user-attachments/assets/ec756d14-e690-4026-880c-e1973fbe04b1" />
+<img width="1494" height="769" alt="image" src="https://github.com/user-attachments/assets/177cb7db-69af-4012-8080-c1d9e44759d2" />
+<img width="1467" height="732" alt="image" src="https://github.com/user-attachments/assets/e2fdc867-3178-43a8-b051-81fea8c14020" />
+
+
+
    ```
+   
 4. Para validar a regra de conflito de horário, tente enviar uma segunda requisição `POST /agendamentos` no mesmo horário para o mesmo `dentista` ou `consultorio` — a API retornará erro impedindo a sobreposição.
 
 ---
