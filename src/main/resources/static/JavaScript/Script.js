@@ -1,6 +1,5 @@
 const BASE_URL = 'http://localhost:8080';
 
-// Cache em memória para filtros e para preencher os selects do Agendamento
 let cachePacientes = [];
 let cacheDentistas = [];
 let cacheProcedimentos = [];
@@ -27,24 +26,19 @@ function obterIniciais(nome) {
     return (partes[0][0] + partes[partes.length - 1][0]).toUpperCase();
 }
 
-// =========================================================================
-// NAVEGAÇÃO ENTRE ABAS (SPA)
-// =========================================================================
+
 document.querySelectorAll('.nav-tab').forEach(link => {
     link.addEventListener('click', async (e) => {
         e.preventDefault();
         const abaAlvo = link.dataset.tab;
 
-        // Atualiza botão ativo no menu
         document.querySelectorAll('.nav-tab').forEach(btn => btn.classList.remove('active'));
         link.classList.add('active');
 
-        // Mostra apenas a seção selecionada
         document.querySelectorAll('.tab-section').forEach(sec => sec.classList.add('oculto'));
         document.getElementById(`sec-${abaAlvo}`).classList.remove('oculto');
         esconderStatus();
 
-        // Carrega os dados da aba clicada
         if (abaAlvo === 'pacientes') await carregarPacientes();
         if (abaAlvo === 'dentistas') await carregarDentistas();
         if (abaAlvo === 'procedimentos') await carregarProcedimentos();
@@ -56,7 +50,6 @@ document.querySelectorAll('.nav-tab').forEach(link => {
     });
 });
 
-// Máscaras reutilizáveis
 function aplicarMascaraCPF(input) {
     input.addEventListener('input', (e) => {
         let v = e.target.value.replace(/\D/g, '').slice(0, 11);
@@ -80,12 +73,9 @@ aplicarMascaraTelefone(document.getElementById('pac-telefone'));
 aplicarMascaraCPF(document.getElementById('den-cpf'));
 aplicarMascaraTelefone(document.getElementById('den-telefone'));
 
-// Inicialização ao abrir o site
 document.addEventListener('DOMContentLoaded', carregarPacientes);
 
-// =========================================================================
-// 1. PACIENTES
-// =========================================================================
+
 async function carregarPacientes() {
     try {
         const res = await fetch(`${BASE_URL}/pacientes`);
@@ -161,9 +151,7 @@ function resetPaciente() {
 }
 document.getElementById('btn-cancelar-paciente').addEventListener('click', resetPaciente);
 
-// =========================================================================
-// 2. DENTISTAS
-// =========================================================================
+
 async function carregarDentistas() {
     try {
         const res = await fetch(`${BASE_URL}/dentistas`);
@@ -245,9 +233,7 @@ function resetDentista() {
 }
 document.getElementById('btn-cancelar-dentista').addEventListener('click', resetDentista);
 
-// =========================================================================
-// 3. PROCEDIMENTOS
-// =========================================================================
+
 async function carregarProcedimentos() {
     try {
         const res = await fetch(`${BASE_URL}/procedimentos`);
@@ -311,9 +297,7 @@ function resetProcedimento() {
 }
 document.getElementById('btn-cancelar-procedimento').addEventListener('click', resetProcedimento);
 
-// =========================================================================
-// 4. CONSULTÓRIOS
-// =========================================================================
+
 async function carregarConsultorios() {
     try {
         const res = await fetch(`${BASE_URL}/consultorios`);
@@ -372,9 +356,7 @@ function resetConsultorio() {
 }
 document.getElementById('btn-cancelar-consultorio').addEventListener('click', resetConsultorio);
 
-// =========================================================================
-// 5. AGENDAMENTOS
-// =========================================================================
+
 async function carregarTudoParaAgendamento() {
     const [rPac, rDen, rProc, rCons] = await Promise.all([
         fetch(`${BASE_URL}/pacientes`),
@@ -476,9 +458,7 @@ function resetAgendamento() {
 }
 document.getElementById('btn-cancelar-agendamento').addEventListener('click', resetAgendamento);
 
-// =========================================================================
-// FUNÇÕES GENÉRICAS DE SALVAR (POST/PUT) E EXCLUIR (DELETE)
-// =========================================================================
+
 async function salvarItem(rota, id, payload, fnReset, fnRecarregar, msgSucesso) {
     const metodo = id ? 'PUT' : 'POST';
     const url = id ? `${BASE_URL}${rota}/${id}` : `${BASE_URL}${rota}`;
