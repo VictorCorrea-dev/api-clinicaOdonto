@@ -16,9 +16,6 @@ public class Consultorio {
 
     private String descricao;
 
-    public Consultorio() {
-    }
-
     public Consultorio(int id, String numero, String descricao) {
         this.id = id;
         this.numero = numero;
@@ -28,6 +25,9 @@ public class Consultorio {
     public Consultorio(String numero, String descricao) {
         this.numero = numero;
         this.descricao = descricao;
+    }
+
+    public Consultorio() {
     }
 
     public int getId() {

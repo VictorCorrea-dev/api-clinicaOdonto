@@ -29,8 +29,6 @@ public class Dentista {
     @NotBlank(message = "O telefone é obrigatório")
     private String telefone;
 
-    public Dentista() {
-    }
 
     public Dentista(int id, String nome, String cpf, String cro, String especialidade, String email, String telefone) {
         this.id = id;
@@ -49,6 +47,9 @@ public class Dentista {
         this.especialidade = especialidade;
         this.email = email;
         this.telefone = telefone;
+    }
+
+    public Dentista() {
     }
 
     public int getId() {

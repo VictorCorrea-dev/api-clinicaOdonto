@@ -41,9 +41,6 @@ public class Agendamento {
 
     private String observacoes;
 
-    public Agendamento() {
-    }
-
     public Agendamento(int id, Paciente paciente, Dentista dentista, Procedimento procedimento,
                        Consultorio consultorio, LocalDateTime dataHora, String status, String observacoes) {
         this.id = id;
@@ -54,6 +51,9 @@ public class Agendamento {
         this.dataHora = dataHora;
         this.status = status;
         this.observacoes = observacoes;
+    }
+
+    public Agendamento() {
     }
 
     public int getId() {
