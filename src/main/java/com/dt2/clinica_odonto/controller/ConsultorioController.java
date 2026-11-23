@@ -21,8 +21,6 @@ public class ConsultorioController {
     }
 
     @PostMapping
-    // @Valid ativa as validações (@NotBlank, etc.) da entidade antes de executar o método
-    // @RequestBody pega o JSON enviado na requisição e transforma em um objeto Java Consultorio
     public ResponseEntity<Consultorio> cadastrar(@Valid @RequestBody Consultorio consultorio) {
         Consultorio salvo = service.cadastrar(consultorio);
         return ResponseEntity.status(HttpStatus.CREATED).body(salvo);
