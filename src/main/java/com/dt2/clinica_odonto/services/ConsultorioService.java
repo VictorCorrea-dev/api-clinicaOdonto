@@ -29,23 +29,22 @@ public class ConsultorioService {
     }
 
     public Optional<Consultorio> buscarPorId(int id) {
-        // Retorna um Optional
         return repository.findById(id);
     }
 
     public Optional<Consultorio> atualizar(int id, Consultorio dadosAtualizados) {
         return repository.findById(id).map(consultorioExistente -> {
-            consultorioExistente.setNumero(dadosAtualizados.getNumero()); // Troca o número antigo pelo novo
-            consultorioExistente.setDescricao(dadosAtualizados.getDescricao()); // Troca a descrição antiga pela nova
-            return repository.save(consultorioExistente); // Como já tem ID, o save() executa um UPDATE no banco
+            consultorioExistente.setNumero(dadosAtualizados.getNumero()); 
+            consultorioExistente.setDescricao(dadosAtualizados.getDescricao()); 
+            return repository.save(consultorioExistente); 
         });
     }
 
     public boolean deletar(int id) {
-        if (!repository.existsById(id)) { // Checa antes se o ID existe no banco para evitar erro 500
-            return false; // Avisa o Controller que não encontrou nada para apagar
+        if (!repository.existsById(id)) {
+            return false; 
         }
-        repository.deleteById(id); // Executa "DELETE FROM consultorio WHERE id = ?"
-        return true; // Avisa o Controller que apagou com sucesso
+        repository.deleteById(id);
+        return true; 
     }
 }
